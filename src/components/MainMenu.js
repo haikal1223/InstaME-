@@ -1,15 +1,15 @@
 import React from 'react'
-import { createBottomTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Home from './Home'
 import PostPhoto from './PostPhoto'
-import Profile from './Profile'
+import ProfileDrawer from './ProfileDrawer'
 import { Icon } from 'react-native-elements'
 
-export default createBottomTabNavigator(
+export default createAppContainer(createBottomTabNavigator(
   {
     Home: Home,
     PostPhoto: PostPhoto,
-    Profile: Profile
+    Profile: ({screenProps}) => <ProfileDrawer screenProps={{rootStackNavigator : screenProps.rootStackNavigator}} />
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -32,4 +32,4 @@ export default createBottomTabNavigator(
       inactiveTintColor: 'gray',
     },
   }
-);
+));

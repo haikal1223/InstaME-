@@ -1,2 +1,5 @@
 export * from './RegisterActions'
 export * from './LoginActions'
+export * from './AuthAction'
+export * from './EditProfileAction'
+export * from './EditPostAction'

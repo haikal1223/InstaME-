@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import firebase from '@firebase/app'
 import Main from '../components/Main'
+import '@firebase/auth'
+import { connect } from 'react-redux'
+import { alreadyLogin, notLoginYet } from '../actions'
 
 class Appinit extends Component {
     componentDidMount() {
@@ -19,7 +22,16 @@ class Appinit extends Component {
     firebase.initializeApp(firebaseConfig);
 
   }
+
+  firebase.auth().onAuthStateChanged((user) => { // bukan dapetin res, dapetnya usernya aja
+    if(user) {
+      
+      this.props.alreadyLogin({user})
+    }else{
+      this.props.notLoginYet()
     }
+  })
+}
 
   render() {
     return (
@@ -28,4 +40,4 @@ class Appinit extends Component {
   }
 }
 
-export default Appinit
+export default connect(null,{alreadyLogin, notLoginYet})(Appinit)

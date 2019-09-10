@@ -80,7 +80,7 @@ class PostPhoto extends Component {
         const { currentUser } = firebase.auth()
 
         firebase.database().ref('/post')
-        .push({ imageURL: url, caption: this.state.caption, usertId: currentUser.uid})
+        .push({ imageURL: url, caption: this.state.caption, userId: currentUser.uid})
         .then(()=> {
             this.setState({loading: false})
         })

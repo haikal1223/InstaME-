@@ -15,9 +15,9 @@ export default (state = INITIAL_STATE, action) => {
         case LOGIN_USER_SUCCESS: 
             return { ...INITIAL_STATE, user:action.payload, checkedAuth: true};
         case LOGOUT_USER:
-            return {...INITIAL_STATE, checkedAuth: true};
+            return {...INITIAL_STATE, checkedAuth: true}; // checked auth buat...
         case NOT_LOGIN_YET:
-            return {...INITIAL_STATE, checkedAuth: true};
+            return {...INITIAL_STATE, checkedAuth: true}; // checked auth
         default:
             return state;
     }
