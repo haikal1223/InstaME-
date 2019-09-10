@@ -7,11 +7,11 @@ import {
     EDIT_POST_INIT
 }from './types'
 
-export const editPostInit = (postId, postImage, caption) => {
+export const editPostInit = (idPost, postImage, caption) => {
     return{
         type: EDIT_POST_INIT,
         payload:{
-            postId,
+            idPost,
             postImage,
             caption,
         }

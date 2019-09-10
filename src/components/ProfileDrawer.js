@@ -30,7 +30,10 @@ const DrawerNavigator = createAppContainer(createDrawerNavigator(
             }
         },
         PostDetail: {
-            screen: PostDetail
+            screen: PostDetail,
+            navigationOptions: {
+                drawerLabel:() => null
+            }
         }
     },
     {

@@ -47,11 +47,16 @@ class Profile extends Component {
     }
 
     onPressDetail = (index) => {
-        var postId = this.state.postList[index].id
+        var idPost = this.state.postList[index].id
         var Image = this.state.postList[index].imageURL
         var caption = this.state.postList[index].caption
+        
         console.log(Image)
-        this.props.editPostInit(postId,Image,caption)
+        this.props.editProfileInit(
+            this.props.user.user.displayName,
+            this.props.user.user.photoURL
+            );
+        this.props.editPostInit(idPost,Image,caption)
         this.props.navigation.navigate('PostDetail')
     }
 
@@ -94,6 +99,7 @@ class Profile extends Component {
                         subtitle={'InstaME! User'}
                         />
                     <Button
+                        
                         title='Edit Profile'
                         containerStyle={{marginTop: 15, marginHorizontal: 15}}
                         buttonStyle={{borderColor: 'black'}}
@@ -101,7 +107,7 @@ class Profile extends Component {
                         type='outline'
                         onPress={this.onBtnEditProfilePress}
                     />
-                    <View style={{flexDirection: 'row', flexWrap: 'wrap', flex: 1, margintop: 1}}>
+                    <View style={{flexDirection: 'row', flexWrap: 'wrap', flex: 1, marginVertical:10}}>
                               {this.renderListPhoto()}       
                     </View>
                  
